@@ -48,5 +48,5 @@ Projenin E-R diyagramını gösteren görsel:
 
 ---
 
-Bu projede Elektrikli Araç Otomasyonu için detaylı bir veri tabanı yapısı oluşturulmuştur. Projede müşteri, araç, sürüş geçmişi, fatura, şarj istasyonu, personel, bakım geçmişi ve şarj gibi varlıklar yer almakta olup bu varlıklar arasındaki ilişkiler yukarıdaki tablolarda özetlenmiştir.
+Bu projede Elektrikli Araç Otomasyonu için detaylı bir veri tabanı yapısı oluşturulmuştur. Projede müşteri, araç, sürüş geçmişi, fatura, şarj istasyonu, personel ve bakım geçmişi gibi varlıklar yer almakta olup bu varlıklar arasındaki ilişkiler yukarıdaki tablolarda özetlenmiştir.
 
