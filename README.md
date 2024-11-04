@@ -106,5 +106,5 @@ Her bir varlık ve ilişki için gereksinim detayları aşağıda verilmiştir.
 - İşletir (Personel - Şarj İstasyonu): Çoktan-Bire
 - Faturalandırır (Fatura - Şarj): Birden-Bire
 
-## E-R Diyagramı![eR drawio](https://github.com/user-attachments/assets/d8b84458-fe98-45a5-815a-2b3a36dd4023)
 
+![Başlıksız Diyagram](https://github.com/user-attachments/assets/3343f9b8-913a-41e5-89df-df081059cb97)
