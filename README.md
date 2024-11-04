@@ -6,7 +6,7 @@
 - Melih UĞURLU
 
 ## Proje Gereksinimleri
-Genel Gereksinimler:
+Genel Gereksinimler:/n
 Veri Tabanı Yapısı: Elektrikli Araç Otomasyonu sistemi için bir veri tabanı yapısının kurulması.
 Kullanıcı Rolleri: Müşteriler, araç sahipleri, bakım personeli ve sistem yöneticisi gibi kullanıcı rollerinin tanımlanması.
 Veri Güvenliği: Müşteri bilgileri, ödeme detayları ve bakım geçmişi gibi kritik verilerin güvenliğinin sağlanması.
