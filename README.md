@@ -108,6 +108,3 @@ Her bir varlık ve ilişki için gereksinim detayları aşağıda verilmiştir.
 
 ## E-R Diyagramı![eR drawio](https://github.com/user-attachments/assets/d8b84458-fe98-45a5-815a-2b3a36dd4023)
 
-[ER Diyagramı Görüntüle](link-ver)
-
-![ER Diyagramı](diyagram-dosya-adı.png)
