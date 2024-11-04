@@ -1,110 +1,53 @@
-# Elektrikli Araç Otomasyonu
+# BMÜ329 Veri Tabanı Sistemleri Dersi Dönem Projesi Gereksinimleri ve E-R Diyagramı
 
-## Proje Ekibindeki Kişiler
+## Proje Adı: Elektrikli Araç Otomasyonu
+
+### Proje Ekibindeki Kişiler
 - Elif Sara HAN
 - Fatma BEYAZ
 - Melih UĞURLU
 
 ## Proje Gereksinimleri
 
-### Genel Gereksinimler
-- **Veri Tabanı Yapısı**: Elektrikli Araç Otomasyonu sistemi için bir veri tabanı yapısının kurulması.
-- **Kullanıcı Rolleri**: Müşteriler, araç sahipleri, bakım personeli ve sistem yöneticisi gibi kullanıcı rollerinin tanımlanması.
-- **Veri Güvenliği**: Müşteri bilgileri, ödeme detayları ve bakım geçmişi gibi kritik verilerin güvenliğinin sağlanması.
-- **Kullanıcı Dostu Arayüz**: Sisteme veri girişi ve veri sorgulama işlemlerinin kolayca yapılabilmesi için kullanıcı dostu bir arayüz sağlanması.
-- **Güncelleme ve İzleme**: Araç, bakım, şarj ve müşteri işlemlerinin izlenebilmesi ve gerektiğinde güncellenebilmesi.
-- **Raporlama**: Şarj kullanımı, bakım maliyetleri ve müşteri bakiyeleri gibi konularda raporlama yapılabilmesi.
+Elektrikli Araç Otomasyonu veri tabanı projesinin gereksinim detayları aşağıda açıklanmaktadır. Projede yer alan varlıklar, bu varlıkların sahip olduğu nitelikler ve aralarındaki ilişkiler belirtilmiştir. Her varlık, ilişkili olduğu diğer varlıklarla zengin bir ilişki yapısına sahiptir.
 
-### Detaylı Gereksinimler
-Her bir varlık ve ilişki için gereksinim detayları aşağıda verilmiştir.
+---
 
-1. **Müşteri**
-   - **Özellikler**:
-     - Müşteri_ID: Müşteri kimlik numarası.
-     - İsim: Müşteri adı.
-     - Bakiye: Müşteri bakiyesi, fatura ödeme ve şarj işlemleri için kullanılır.
-     - İletişim Bilgileri: Müşteri ile iletişim kurulmasını sağlayan bilgiler.
-   - **İlişkiler**:
-     - Sahip Olur (Araç): Bir müşteri birden fazla araca sahip olabilir (Birden-Çoğa).
-     - Öder (Fatura): Müşteri faturaları öder (Birden-Çoğa).
+### Varlıklar ve İlişkiler
 
-2. **Araç**
-   - **Özellikler**:
-     - Araç_ID: Araç kimlik numarası.
-     - Model: Araç modeli.
-     - Marka: Araç markası.
-     - Batarya Kapasitesi: Araç batarya kapasitesi.
-     - Şarj Durumu: Anlık batarya seviyesi veya durumu.
-     - Son Bakım Tarihi: Aracın en son bakım yaptığı tarih.
-   - **İlişkiler**:
-     - Gerçekleştirilir (Sürüş Geçmişi): Araç sürüş geçmişine sahiptir (Birden-Çoğa).
-     - Şarj Edilir (Şarj İstasyonu): Araçlar bir veya birden fazla şarj istasyonunda şarj olabilir (Çoktan-Çoğa).
-     - Bakım Yaptırır (Bakım Geçmişi): Araç bakım işlemlerine sahiptir (Birden-Çoğa).
+| Varlık | Özellikler | İlişkiler |
+|--------|------------|-----------|
+| **Müşteri** | - Müşteri_ID: Müşteri kimlik numarası <br> - İsim: Müşteri adı <br> - Bakiye: Fatura ödeme ve şarj işlemleri için kullanılır <br> - İletişim Bilgileri: İletişim sağlanması için gerekli bilgiler | - Sahip Olur (Araç): Bir müşteri birden fazla araca sahip olabilir (1:N) <br> - Öder (Fatura): Müşteri birden fazla fatura öder (1:N) |
+| **Araç** | - Araç_ID: Araç kimlik numarası <br> - Model: Araç modeli <br> - Marka: Araç markası <br> - Batarya Kapasitesi: Araç batarya kapasitesi <br> - Şarj Durumu: Anlık batarya seviyesi veya durumu <br> - Son Bakım Tarihi: En son yapılan bakım tarihi | - Gerçekleştirilir (Sürüş Geçmişi): Araç birden fazla sürüş kaydına sahiptir (1:N) <br> - Şarj Edilir (Şarj İstasyonu): Araçlar bir veya birden fazla şarj istasyonunda şarj olabilir (N:M) <br> - Bakım Yaptırır (Bakım Geçmişi): Araç birden fazla bakım kaydına sahiptir (1:N) |
+| **Sürüş Geçmişi** | - Sürüş_ID: Sürüş kimlik numarası <br> - Başlangıç KM: Başlangıç kilometresi <br> - Bitiş KM: Bitiş kilometresi <br> - Süre: Sürüş süresi <br> - Enerji Kullanımı: Sürüş sırasında kullanılan enerji miktarı | - Gerçekleştirilir (Araç): Bir araç birden fazla sürüş kaydına sahip olabilir (1:N) |
+| **Fatura** | - Fatura_ID: Fatura kimlik numarası <br> - Fatura Tarihi: Fatura düzenlenme tarihi <br> - Tutar: Fatura tutarı | - Öder (Müşteri): Fatura bir müşteri tarafından ödenir (N:1) <br> - Faturalandırır (Şarj): Fatura bir şarj işlemi için düzenlenir (1:1) |
+| **Şarj İstasyonu** | - İstasyon_ID: Şarj istasyonu kimlik numarası <br> - Konum: Şarj istasyonunun bulunduğu yer <br> - Kapasite: Şarj noktası sayısı <br> - Mevcut Durum: İstasyon durumu (aktif/pasif) | - Şarj Edilir (Araç): İstasyonda birden fazla araç şarj olabilir (N:M) <br> - İşletir (Personel): Bir personel bir şarj istasyonunu işletebilir (N:1) |
+| **Personel** | - Personel_ID: Personel kimlik numarası <br> - Personel İsim: Personel adı <br> - Görev: Görev tanımı <br> - İşe Giriş Tarihi: İşe başlangıç tarihi <br> - Yapılan İşlemler: Personelin gerçekleştirdiği işlemler | - İşletir (Şarj İstasyonu): Personel birden fazla şarj istasyonunu işletebilir (1:N) |
+| **Bakım Geçmişi** | - Bakım_ID: Bakım kimlik numarası <br> - Bakım Tarihi: Bakımın yapıldığı tarih <br> - Kullanılan Parçalar: Bakımda kullanılan parçalar <br> - Yapılan İşlemler: Yapılan bakım işlemleri | - Bakım Yaptırır (Araç): Bakım işlemi bir araca ait olabilir (N:1) |
+| **Şarj** | - Şarj_ID: Şarj işlemi kimlik numarası <br> - Tarih: Şarj işlemi tarihi <br> - Kullanılan Enerji: Şarj sırasında kullanılan enerji miktarı | - Şarj Edilir (Araç-Şarj İstasyonu): Şarj işlemi bir araç ve şarj istasyonu arasında gerçekleştirilir (N:M) |
 
-3. **Sürüş Geçmişi**
-   - **Özellikler**:
-     - Sürüş_ID: Sürüş kimlik numarası.
-     - Başlangıç KM: Sürüşün başlangıç kilometresi.
-     - Bitiş KM: Sürüşün bitiş kilometresi.
-     - Süre: Sürüş süresi.
-     - Enerji Kullanımı: Sürüşte tüketilen enerji miktarı.
-   - **İlişkiler**:
-     - Gerçekleştirilir (Araç): Bir araç birden fazla sürüş kaydına sahip olabilir (Birden-Çoğa).
+---
 
-4. **Fatura**
-   - **Özellikler**:
-     - Fatura_ID: Fatura kimlik numarası.
-     - Fatura Tarihi: Fatura tarihi.
-     - Tutar: Fatura tutarı.
-   - **İlişkiler**:
-     - Öder (Müşteri): Fatura bir müşteri tarafından ödenir (Çoktan-Bire).
-     - Faturalandırır (Şarj): Fatura bir şarj işlemi için düzenlenebilir (Birden-Bire).
+### İlişki Özeti
 
-5. **Şarj İstasyonu**
-   - **Özellikler**:
-     - İstasyon_ID: Şarj istasyonu kimlik numarası.
-     - Konum: Şarj istasyonunun konumu.
-     - Kapasite: İstasyonda bulunan şarj noktalarının sayısı.
-     - Mevcut Durum: İstasyonun mevcut durumu (aktif/pasif).
-   - **İlişkiler**:
-     - Şarj Edilir (Araç): Şarj istasyonunda birden fazla araç şarj olabilir (Çoktan-Çoğa).
-     - İşletir (Personel): İstasyon bir personel tarafından işletilebilir (Çoktan-Bire).
+| İlişki | Varlık 1 | Varlık 2 | Kardinalite |
+|--------|----------|----------|-------------|
+| Sahip Olur | Müşteri | Araç | 1:N |
+| Öder | Müşteri | Fatura | 1:N |
+| Gerçekleştirilir | Araç | Sürüş Geçmişi | 1:N |
+| Şarj Edilir | Araç | Şarj İstasyonu | N:M |
+| Bakım Yaptırır | Araç | Bakım Geçmişi | 1:N |
+| İşletir | Personel | Şarj İstasyonu | N:1 |
+| Faturalandırır | Fatura | Şarj | 1:1 |
 
-6. **Personel**
-   - **Özellikler**:
-     - Personel_ID: Personel kimlik numarası.
-     - Personel İsim: Personelin adı.
-     - Görev: Personelin görev tanımı.
-     - İşe Giriş Tarihi: Personelin işe başladığı tarih.
-     - Yapılan İşlemler: Personelin gerçekleştirdiği işlemler.
-   - **İlişkiler**:
-     - İşletir (Şarj İstasyonu): Personel birden fazla şarj istasyonunu işletebilir (Birden-Çoğa).
+---
 
-7. **Bakım Geçmişi**
-   - **Özellikler**:
-     - Bakım_ID: Bakım kimlik numarası.
-     - Bakım Tarihi: Bakımın yapıldığı tarih.
-     - Kullanılan Parçalar: Bakım sırasında kullanılan parçalar.
-     - Yapılan İşlemler: Bakım sırasında yapılan işlemler.
-   - **İlişkiler**:
-     - Bakım Yaptırır (Araç): Bakım işlemi bir araca ait olabilir (Çoktan-Bire).
+### E-R Diyagramı
 
-8. **Şarj**
-   - **Özellikler**:
-     - Şarj_ID: Şarj işlemi kimlik numarası.
-     - Tarih: Şarj işlemi tarihi.
-     - Kullanılan Enerji: Şarj sırasında kullanılan enerji miktarı.
-   - **İlişkiler**:
-     - Şarj Edilir (Araç-Şarj İstasyonu): Şarj işlemi bir araç ve şarj istasyonu arasında gerçekleştirilir (Çoktan-Çoğa).
+Projenin E-R diyagramını gösteren görsel:
+![Elektrikli Araç Otomasyonu E-R Diyagramı](https://github.com/user-attachments/assets/3343f9b8-913a-41e5-89df-df081059cb97)
 
-### İlişki Özetleri
-- Sahip Olur (Müşteri - Araç): Birden-Çoğa
-- Öder (Müşteri - Fatura): Birden-Çoğa
-- Gerçekleştirilir (Araç - Sürüş Geçmişi): Birden-Çoğa
-- Şarj Edilir (Araç - Şarj İstasyonu): Çoktan-Çoğa
-- Bakım Yaptırır (Araç - Bakım Geçmişi): Birden-Çoğa
-- İşletir (Personel - Şarj İstasyonu): Çoktan-Bire
-- Faturalandırır (Fatura - Şarj): Birden-Bire
+---
 
+Bu projede Elektrikli Araç Otomasyonu için detaylı bir veri tabanı yapısı oluşturulmuştur. Projede müşteri, araç, sürüş geçmişi, fatura, şarj istasyonu, personel, bakım geçmişi ve şarj gibi varlıklar yer almakta olup bu varlıklar arasındaki ilişkiler yukarıdaki tablolarda özetlenmiştir.
 
-![Başlıksız Diyagram](https://github.com/user-attachments/assets/3343f9b8-913a-41e5-89df-df081059cb97)
