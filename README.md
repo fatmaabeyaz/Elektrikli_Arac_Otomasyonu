@@ -24,7 +24,6 @@ Elektrikli Araç Otomasyonu veri tabanı projesinin gereksinim detayları aşağ
 | **Şarj İstasyonu** | - İstasyon_ID: Şarj istasyonu kimlik numarası <br> - Konum: Şarj istasyonunun bulunduğu yer <br> - Kapasite: Şarj noktası sayısı <br> - Mevcut Durum: İstasyon durumu (aktif/pasif) | - Şarj Edilir (Araç): İstasyonda birden fazla araç şarj olabilir (N:M) <br> - İşletir (Personel): Bir personel bir şarj istasyonunu işletebilir (N:1) |
 | **Personel** | - Personel_ID: Personel kimlik numarası <br> - Personel İsim: Personel adı <br> - Görev: Görev tanımı <br> - İşe Giriş Tarihi: İşe başlangıç tarihi <br> - Yapılan İşlemler: Personelin gerçekleştirdiği işlemler | - İşletir (Şarj İstasyonu): Personel birden fazla şarj istasyonunu işletebilir (1:N) |
 | **Bakım Geçmişi** | - Bakım_ID: Bakım kimlik numarası <br> - Bakım Tarihi: Bakımın yapıldığı tarih <br> - Kullanılan Parçalar: Bakımda kullanılan parçalar <br> - Yapılan İşlemler: Yapılan bakım işlemleri | - Bakım Yaptırır (Araç): Bakım işlemi bir araca ait olabilir (N:1) |
-| **Şarj** | - Şarj_ID: Şarj işlemi kimlik numarası <br> - Tarih: Şarj işlemi tarihi <br> - Kullanılan Enerji: Şarj sırasında kullanılan enerji miktarı | - Şarj Edilir (Araç-Şarj İstasyonu): Şarj işlemi bir araç ve şarj istasyonu arasında gerçekleştirilir (N:M) |
 
 ---
 
@@ -38,7 +37,7 @@ Elektrikli Araç Otomasyonu veri tabanı projesinin gereksinim detayları aşağ
 | Şarj Edilir | Araç | Şarj İstasyonu | N:M |
 | Bakım Yaptırır | Araç | Bakım Geçmişi | 1:N |
 | İşletir | Personel | Şarj İstasyonu | N:1 |
-| Faturalandırır | Fatura | Şarj | 1:1 |
+| Faturalandırır | Fatura | Şarj İstasyonu | 1:1 |
 
 ---
 
