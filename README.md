@@ -7,6 +7,8 @@
 - Fatma BEYAZ
 - Melih UĞURLU
 
+Elektrikli Araç Otomasyonu veri tabanı projesinin gereksinim detayları aşağıda açıklanmaktadır. Projede yer alan varlıklar, bu varlıkların sahip olduğu nitelikler ve aralarındaki ilişkiler belirtilmiştir. Her varlık, ilişkili olduğu diğer varlıklarla zengin bir ilişki yapısına sahiptir.
+
 ### Gereksinimler
 
 #### Müşteri Gereksinimleri
@@ -31,7 +33,7 @@
 
 
 
-Elektrikli Araç Otomasyonu veri tabanı projesinin gereksinim detayları aşağıda açıklanmaktadır. Projede yer alan varlıklar, bu varlıkların sahip olduğu nitelikler ve aralarındaki ilişkiler belirtilmiştir. Her varlık, ilişkili olduğu diğer varlıklarla zengin bir ilişki yapısına sahiptir.
+
 
 ---
 
@@ -58,7 +60,7 @@ Elektrikli Araç Otomasyonu veri tabanı projesinin gereksinim detayları aşağ
 | Gerçekleştirilir | Araç | Sürüş Geçmişi | 1:N |
 | Şarj Edilir | Araç | Şarj İstasyonu | N:M |
 | Bakım Yaptırır | Araç | Bakım Geçmişi | 1:N |
-| İşletir | Personel | Şarj İstasyonu | N:1 |
+| İşletir | Personel | Şarj İstasyonu | N:M |
 | Faturalandırır | Fatura | Şarj İstasyonu | 1:1 |
 
 ---
