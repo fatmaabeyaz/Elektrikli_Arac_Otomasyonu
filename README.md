@@ -61,7 +61,7 @@ Elektrikli Araç Otomasyonu veri tabanı projesinin gereksinim detayları aşağ
 | Şarj Edilir | Araç | Şarj İstasyonu | N:M |
 | Bakım Yaptırır | Araç | Bakım Geçmişi | 1:N |
 | İşletir | Personel | Şarj İstasyonu | N:M |
-| Faturalandırır | Fatura | Şarj İstasyonu | M:1 |
+| Faturalandırır | Fatura | Şarj İstasyonu | N:1 |
 
 ---
 
