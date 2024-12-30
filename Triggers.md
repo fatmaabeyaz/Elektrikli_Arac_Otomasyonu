@@ -103,5 +103,3 @@ END;
 | **tr_UpdateBakiye**      | **FaturaTB** tablosuna yeni bir fatura kaydı eklendiğinde, faturadaki **Tutar** değerine göre ilgili müşterinin **Bakiye** değerini azaltır. |
 
 ---
-
-Bu üç trigger, veritabanı işleyişinde veri tutarlılığını korumak ve işlemleri otomatikleştirmek amacıyla kullanılır. Eğer başka bir sorunuz veya değişiklik yapmamı istediğiniz bir şey olursa, yardımcı olmaktan memnuniyet duyarım!
