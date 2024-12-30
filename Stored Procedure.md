@@ -1,5 +1,3 @@
----
-
 # Stored Procedure Raporu - Araç Tablosu İşlemleri
 
 Bu rapor, **AracTB** tablosu üzerinde yapılacak olan CRUD (Create, Read, Update, Delete) işlemleri için kullanılan SQL **Stored Procedure**'leri içermektedir.
@@ -181,5 +179,3 @@ EXEC DeleteArac
 EXEC GetAracByMarka 
     @Marka = 'Tesla';
 ```
-
----
